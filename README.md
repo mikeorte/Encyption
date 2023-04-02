@@ -5,6 +5,7 @@ This is my encryption project. The goals are to be able to have multiple encypti
 # Updates
 
 3/26/2023 <br>
+
 ## Things I did:
 * Error catching for CaesarCipher and key values
 * Made it possible to use capital letters
@@ -13,6 +14,17 @@ This is my encryption project. The goals are to be able to have multiple encypti
 
 ## Things I have to do:
 * Make CaesarCipher its own class
+* Make new methods of encryption and implement them
+* Read and write text files
+* Encrypt the actual text tiles
+</p>
+
+3/27/2023<br>
+
+## Things I did:
+* Make CaesarCipher its own class
+
+## Things I have to do:
 * Make new methods of encryption and implement them
 * Read and write text files
 * Encrypt the actual text tiles

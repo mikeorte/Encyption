@@ -1,6 +1,0 @@
-class CaesarCipher{
-    public:
-
-    private:
-
-};
