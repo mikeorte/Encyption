@@ -3,7 +3,7 @@
 
 using namespace std;
 
-class Caesar{
+class Caesar{ // shifts entire alphabet by a certain amount
 private:
     string plainText;
     string encryptedText;
@@ -21,7 +21,7 @@ public:
         plainText = message; // sets plainText value
         cout << "Please enter a key (Only integers are accepted): ";
         cin >> TempKey;
-        while (!(onlyNumbers(TempKey))) {
+        while (!(onlyNumbers(TempKey)) || stoi(TempKey)> 1000) {
             cout << "Invalid Input!\n";
             cout << "Please enter a key (Only integers are accepted): ";
             cin >> TempKey;
@@ -104,5 +104,14 @@ public:
     }
     bool onlyNumbers(string str) {
     return str.find_first_not_of("0123456789") == string::npos;
+    }
+    string getPlainText(){
+        return plainText;
+    }
+    string getEncryptedText(){
+        return encryptedText;
+    }
+    int getKey(){
+        return key;
     }
 };
