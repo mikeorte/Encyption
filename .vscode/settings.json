@@ -5,6 +5,13 @@
         "string": "cpp",
         "fstream": "cpp",
         "*.tcc": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "initializer_list": "cpp",
+        "system_error": "cpp",
+        "ostream": "cpp"
     }
 }

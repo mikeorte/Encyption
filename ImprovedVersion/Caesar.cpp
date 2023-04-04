@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -10,26 +11,28 @@ private:
     int key;
 public:
     void encryptString() { // sets data for rest of class
-        string message, TempKey;
-        cout << "Please enter a string (Only letters are accepted): ";
-        cin >> message;
-        while (!(onlyLetters(message))) {
+        string TempMessage, TempKey;
+        cout << "Please enter a message (Only letters are accepted): ";
+        cin.ignore();
+        getline(cin, TempMessage);
+        while (!(onlyLetters(TempMessage))) {
             cout << "Invalid Input!\n";
-            cout << "Please enter a string (Only letters are accepted): ";
-            cin >> message;
+            cout << "Please enter a message (Only letters are accepted): ";
+            getline(cin, TempMessage);
         }
-        plainText = message; // sets plainText value
+        plainText = TempMessage; // sets plainText value
         cout << "Please enter a key (Only integers are accepted): ";
-        cin >> TempKey;
-        while (!(onlyNumbers(TempKey)) || stoi(TempKey)> 1000) {
+        cin.ignore();
+        getline(cin, TempKey);
+        while (!(onlyNumbers(TempKey)) && stol(TempKey) < 10000) {
             cout << "Invalid Input!\n";
             cout << "Please enter a key (Only integers are accepted): ";
-            cin >> TempKey;
+            getline(cin, TempKey);
         }
-        key = stoi(TempKey); //sets key value
-        encryptedText = encryption(message, key);
+        key = stol(TempKey); //sets key value
+        encryptedText = encryption(plainText, key);
     }
-    string encryption(string message, int key){ //sets encryptedText
+    string encryption(string message, int key){ // sets encryptedText
         string cipher = "";
         for(int i = 0; i < message.length(); i++){
             char c = message[i];
@@ -54,26 +57,28 @@ public:
         return cipher;
     }
     void decryptString() { // sets data for rest of class
-    string message, TempKey;
-    cout << "Please enter a string (Only letters are accepted): ";
-    cin >> message;
-    while (!(onlyLetters(message))) {
-        cout << "Invalid Input!\n";
-        cout << "Please enter a string (Only letters are accepted): ";
-        cin >> message;
-    }
-    encryptedText = message; // sets encryptedText value
-    cout << "Please enter a key (Only integers are accepted): ";
-    cin >> TempKey;
-    while (!(onlyNumbers(TempKey))) {
-        cout << "Invalid Input!\n";
+        string TempMessage, TempKey;
+        cout << "Please enter a message (Only letters are accepted): ";
+        cin.ignore();
+        getline(cin, TempMessage);
+        while (!(onlyLetters(TempMessage))) {
+            cout << "Invalid Input!\n";
+            cout << "Please enter a message (Only letters are accepted): ";
+            getline(cin, TempMessage);
+        }
+        encryptedText = TempMessage; // sets encryptedText value
         cout << "Please enter a key (Only integers are accepted): ";
-        cin >> TempKey;
+        cin.ignore();
+        getline(cin, TempKey);
+        while (!(onlyNumbers(TempKey))) {
+            cout << "Invalid Input!\n";
+            cout << "Please enter a key (Only integers are accepted): ";
+            cin.ignore(10000, '\n');
+        }
+        key = stoi(TempKey); //sets key value
+        plainText = decryption(encryptedText, key);
     }
-    key = stoi(TempKey); //sets key value
-    plainText = decryption(message, key);
-    }
-    string decryption(string message, int key){ //will also shift the letters by the key, but opposite way
+    string decryption(string message, int key){ // sets plainText
         string plain = "";
         for(int i = 0; i < message.length(); i++){
             char c = message[i];
@@ -99,19 +104,19 @@ public:
         }
     return plain;
 }
-    bool onlyLetters(string str) {
+    bool onlyLetters(string str) { // checks for only letters
     return str.find_first_not_of("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ") == string::npos;
     }
-    bool onlyNumbers(string str) {
+    bool onlyNumbers(string str) { // checks for only numbers
     return str.find_first_not_of("0123456789") == string::npos;
     }
-    string getPlainText(){
+    string getPlainText(){ // returns plainText
         return plainText;
     }
-    string getEncryptedText(){
+    string getEncryptedText(){ //returns encryptedText
         return encryptedText;
     }
-    int getKey(){
+    int getKey(){ //returns Key
         return key;
     }
 };
