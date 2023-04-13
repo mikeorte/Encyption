@@ -22,14 +22,13 @@ public:
         }
         plainText = TempMessage; // sets plainText value
         cout << "Please enter a key (Only integers are accepted): ";
-        cin.ignore();
         getline(cin, TempKey);
-        while (!(onlyNumbers(TempKey)) && stol(TempKey) < 10000) {
+        while (!(onlyNumbers(TempKey))) {
             cout << "Invalid Input!\n";
             cout << "Please enter a key (Only integers are accepted): ";
             getline(cin, TempKey);
         }
-        key = stol(TempKey); //sets key value
+        key = stoi(TempKey); // sets key value
         encryptedText = encryption(plainText, key);
     }
     string encryption(string message, int key){ // sets encryptedText
@@ -63,17 +62,16 @@ public:
         getline(cin, TempMessage);
         while (!(onlyLetters(TempMessage))) {
             cout << "Invalid Input!\n";
-            cout << "Please enter a message (Only letters are accepted): ";
+            cout << "Please enter a message (Only letters are accepted): "; 
             getline(cin, TempMessage);
         }
         encryptedText = TempMessage; // sets encryptedText value
         cout << "Please enter a key (Only integers are accepted): ";
-        cin.ignore();
         getline(cin, TempKey);
         while (!(onlyNumbers(TempKey))) {
             cout << "Invalid Input!\n";
             cout << "Please enter a key (Only integers are accepted): ";
-            cin.ignore(10000, '\n');
+            getline(cin, TempKey);
         }
         key = stoi(TempKey); //sets key value
         plainText = decryption(encryptedText, key);

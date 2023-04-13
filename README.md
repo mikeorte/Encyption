@@ -67,8 +67,22 @@ This is my encryption project. The goals are to be able to have multiple encypti
     * Includes user not only inputting letters, white space, for choices was able to fix user input and keep it in the loop. 
 * Made Vigenere an option for encryption and decryption
     * Vigenere is an option in my encryption and decryption manager. It is also able to be called on, and output the correct encryption. Also added going back as an option.
+* Updated the README file with more specific information about what I did.
 
 ### Things I have to do:
 * Make 1 more method of encryption and implement it
 * Read and write text files
+* Encrypt the actual text files
+
+## 4/8/2023 <br>
+### Things I did:
+* Created a fileManager
+    * It is called whenever the user encrypts a file and writes to the file
+* Created an option to print the file
+    * In the main menu, printing the file is now option 3, while quitting is option 4.
+* Made the fileManager able to properly write to the file
+    * The plainText, encryptedText, key, and encryption method are all properly saved to the passwords.txt file.
+
+### Things I have to do:
+* Make 1 more method of encryption and implement it
 * Encrypt the actual text files

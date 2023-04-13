@@ -8,8 +8,10 @@ private:
     string plainText;
     string encryptedText;
     string key;
+    string originalKey;
 public:
     void createKey(string tempMessage, string tempKey){ // will create the key
+        originalKey = tempKey;
         for (int i = 0; i < tempKey.length(); i++) // will turn key to all capital letters
   	    {
   		    tempKey[i] = toupper(tempKey[i]);
@@ -106,5 +108,8 @@ public:
     }
     string getKey(){ //returns Key
         return key;
+    }
+    string getOriginalKey(){ //returns Key
+        return originalKey;
     }
 };
