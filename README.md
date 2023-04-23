@@ -73,6 +73,7 @@ This is my encryption project. The goals are to be able to have multiple encypti
 * Make 1 more method of encryption and implement it
 * Read and write text files
 * Encrypt the actual text files
+</p>
 
 ## 4/8/2023 <br>
 ### Things I did:
@@ -86,3 +87,25 @@ This is my encryption project. The goals are to be able to have multiple encypti
 ### Things I have to do:
 * Make 1 more method of encryption and implement it
 * Encrypt the actual text files
+</p>
+
+## 4/15/2023 <br>
+### Things I did:
+* Created a login function
+    * The user is able to enter a username and password to log in. Also, I made it so that when the password is entered by the user, asterisks show up. 
+
+### Things I have to do:
+* Make 1 more method of encryption and implement it
+* Encrypt the username and password in a text file. 
+* Encrypt the actual text files
+</p>
+
+## 4/21/2023 <br>
+* Removed namespace std, and used std:: instead
+* Hid the correct login credentials inside of a text file
+    * Rather than having the correct username and password being plaintext in the code, I put it inside of a text file that had a lot of gibberish, with my code correctly finding the correct username and password.
+* Encrypted the password information entered by the user
+    * Used the Caesar Cipher to encrypt the password before pushing it to the file. Also made sure to decrypt it when the user wants to print the text file. 
+
+### Things I have to do:
+* Make 1 more method of encryption and implement it
