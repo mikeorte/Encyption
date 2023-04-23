@@ -117,49 +117,42 @@ public:
     }
 
     static std::string encryptFile(std::string text) {
-    std::string encryptedText = "";
-    int key = 25;
-    for (int i = 0; i < text.length(); i++) {
-        char c = text[i];
-
-        if (std::isalpha(c)) {
-            char base;
-            if (std::isupper(c)) {
-                base = 'A';
+        std::string encryptedText = "";
+        int key = 25;
+        for (int i = 0; i < text.length(); i++) {
+            char c = text[i];
+            if (std::isalpha(c)) {
+                char base;
+                if (std::isupper(c)) {
+                    base = 'A';
+                }
+                else {
+                    base = 'a';
+                }
+                c = (c - base + key) % 26 + base;
             }
-            else {
-                base = 'a';
-            }
-            c = (c - base + key) % 26 + base;
+            encryptedText += c;
         }
-
-        encryptedText += c;
+        return encryptedText;
     }
-
-    return encryptedText;
-}
 
     static std::string decryptFile(std::string text) {
-    std::string decryptedText = "";
-    int key = 25;
-
-    for (int i = 0; i < text.length(); i++) {
-        char c = text[i];
-
-        if (std::isalpha(c)) {
-            char base;
-            if (std::isupper(c)) {
-                base = 'A';
+        std::string decryptedText = "";
+        int key = 25;
+        for (int i = 0; i < text.length(); i++) {
+            char c = text[i];
+            if (std::isalpha(c)) {
+                char base;
+                if (std::isupper(c)) {
+                    base = 'A';
+                }
+                else {
+                    base = 'a';
+                }
+                c = (c - base - key + 26) % 26 + base;
             }
-            else {
-                base = 'a';
-            }
-            c = (c - base - key + 26) % 26 + base;
+            decryptedText += c;
         }
-
-        decryptedText += c;
+        return decryptedText;
     }
-    return decryptedText;
-}
-
 };
