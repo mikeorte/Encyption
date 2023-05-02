@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <algorithm>
+#include "Vigenere.h"
 
 class Vigenere {
 private:
